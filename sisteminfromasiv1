@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Ekstrakurikuler - Al Wildan 15 Bekasi</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN untuk UI Dasar -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800 text-white shadow-lg sticky top-0 z-50 border-b-4 border-amber-400 relative">
+    <!-- Overlay Texture Halus -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fbbf24 1px, transparent 1px); background-size: 20px 20px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex justify-between h-16 md:h-20">
+        <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
+          <div class="flex-shrink-0 flex items-center gap-3">
+            <img 
+              src="https://thumbs2.imgbox.com/09/93/eLDrLgwH_t.png" 
+              alt="Logo Sekolah" 
+              class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white object-cover bg-white shadow-md"
+            />
+            <div class="flex flex-col justify-center">
+              <span class="font-extrabold text-sm md:text-base tracking-wide leading-tight drop-shadow-md text-white">
+                Sistem Informasi Ekstrakurikuler
+              </span>
+              <span class="font-bold text-xs md:text-sm tracking-wide leading-tight drop-shadow-md text-amber-400">
+                Al Wildan Islamic School 15 Bekasi
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-1 xl:space-x-4">
+          <button onclick="navigateTo('home')" class="px-2 xl:px-3 py-2 rounded-md hover:bg-white/10 transition text-sm xl:text-base">Beranda</button>
+          <a href="#ekskul" class="px-2 xl:px-3 py-2 rounded-md hover:bg-white/10 transition text-sm xl:text-base" onclick="navigateTo('home')">Ekstrakurikuler</a>
+          <a href="#dokumentasi" class="px-2 xl:px-3 py-2 rounded-md hover:bg-white/10 transition text-sm xl:text-base" onclick="navigateTo('home')">Dokumentasi</a>
+          <a href="#pembina" class="px-2 xl:px-3 py-2 rounded-md hover:bg-white/10 transition text-sm xl:text-base" onclick="navigateTo('home')">Pembina</a>
+          <button 
+            onclick="navigateTo('register')" 
+            class="bg-amber-400 text-blue-900 px-3 xl:px-4 py-2 rounded-md font-semibold hover:bg-amber-300 transition shadow-md text-sm xl:text-base"
+          >
+            Pendaftaran
+          </button>
+          <button 
+            onclick="alert('Fitur Dashboard Login akan dibuat di tahap selanjutnya! (Sesuai permintaan)')" 
+            class="border-2 border-amber-400 text-amber-400 px-3 xl:px-4 py-2 rounded-md font-semibold hover:bg-amber-400 hover:text-blue-900 transition flex items-center gap-2 shadow-md text-sm xl:text-base"
+          >
+            <i data-lucide="lock" class="w-4 h-4"></i> Login
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-white hover:text-amber-400 focus:outline-none">
+            <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 px-2 pt-2 pb-3 space-y-1 sm:px-3 relative z-10 border-t border-blue-800/50">
+      <button onclick="navigateTo('home')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-white/10 text-white">Beranda</button>
+      <a href="#ekskul" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 rounded-md hover:bg-white/10 text-white">Ekstrakurikuler</a>
+      <a href="#dokumentasi" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-3 py-2 rounded-md hover:bg-white/10 text-white">Dokumentasi</a>
+      <button onclick="navigateTo('register')" class="block w-full text-left bg-amber-400 text-blue-900 px-3 py-2 rounded-md font-semibold mt-4 shadow-md">Pendaftaran</button>
+      <button onclick="alert('Fitur Login coming soon!')" class="block w-full text-left border border-amber-400 text-amber-400 px-3 py-2 rounded-md font-semibold mt-2 shadow-md">Login Siswa</button>
+    </div>
+  </nav>
+
+  <!-- ================= VIEW: HOME ================= -->
+  <div id="view-home" class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-24 pb-32 overflow-hidden">
+      <!-- Ornamen Kontur Lancip & Garis (Background) -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-700 opacity-40 transform skew-x-[-20deg] translate-x-20"></div>
+        <div class="absolute -top-10 left-10 w-40 h-40 border-2 border-amber-400 opacity-20 transform rotate-45"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 border-4 border-white opacity-10 transform rotate-12"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fbbf24 1.5px, transparent 1.5px); background-size: 35px 35px;"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight drop-shadow-lg">
+          Kembangkan Potensimu <br class="hidden md:block"/> Melalui Ekstrakurikuler
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-blue-100 drop-shadow">
+          Temukan minat dan bakatmu. Bergabunglah dengan berbagai kegiatan ekstrakurikuler yang ada di sekolah kami.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button onclick="navigateTo('register')" class="bg-amber-400 text-blue-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-amber-300 transition shadow-xl hover:-translate-y-1 transform duration-300 flex items-center justify-center gap-2">
+            Daftar Sekarang <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+          <a href="#ekskul" class="bg-transparent border-2 border-amber-400 text-amber-400 px-8 py-3 rounded-full font-bold text-lg hover:bg-amber-400 hover:text-blue-900 transition shadow-xl hover:-translate-y-1 transform duration-300 flex items-center justify-center">
+            Lihat Daftar Ekskul
+          </a>
+        </div>
+      </div>
+
+      <!-- Shape Divider Bawah -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg class="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200 0L0 120H1200V0Z" class="fill-slate-50"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Ekstrakurikuler Section -->
+    <section id="ekskul" class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-blue-900 mb-2">Pilihan Ekstrakurikuler</h2>
+          <div class="w-24 h-1 bg-amber-400 mx-auto rounded"></div>
+        </div>
+        
+        <!-- Loading State for Ekskul Cards -->
+        <div id="ekskul-loading" class="flex flex-col items-center justify-center py-8">
+          <i data-lucide="loader-2" class="w-10 h-10 text-blue-600 animate-spin mb-4"></i>
+          <p class="text-slate-600 font-medium">Sedang memuat daftar ekstrakurikuler...</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 hidden" id="ekskul-grid">
+          <!-- Digenerate via JS biar sesuai database -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Dokumentasi Section -->
+    <section id="dokumentasi" class="py-16 bg-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-blue-900 mb-2">Dokumentasi Kegiatan</h2>
+          <div class="w-24 h-1 bg-amber-400 mx-auto rounded"></div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="dokumentasi-grid">
+          <!-- Digenerate via JS biar rapi -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Pembina Section -->
+    <section id="pembina" class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-blue-900 mb-2">Profil Pembina</h2>
+          <div class="w-24 h-1 bg-amber-400 mx-auto rounded"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Profil 1 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center border border-gray-100">
+            <div class="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-blue-700">
+              <i data-lucide="user" class="w-10 h-10"></i>
+            </div>
+            <h3 class="font-bold text-lg text-blue-900">Bapak Ahmad, S.Pd</h3>
+            <p class="text-amber-600 font-medium text-sm mb-3">Pembina Pramuka</p>
+            <div class="flex justify-center gap-3 text-gray-500">
+              <i data-lucide="phone" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+              <i data-lucide="calendar" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+            </div>
+          </div>
+          <!-- Profil 2 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center border border-gray-100">
+            <div class="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-blue-700">
+              <i data-lucide="user" class="w-10 h-10"></i>
+            </div>
+            <h3 class="font-bold text-lg text-blue-900">Bapak Budi, S.Or</h3>
+            <p class="text-amber-600 font-medium text-sm mb-3">Pembina Futsal & Basket</p>
+            <div class="flex justify-center gap-3 text-gray-500">
+              <i data-lucide="phone" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+              <i data-lucide="calendar" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+            </div>
+          </div>
+          <!-- Profil 3 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center border border-gray-100">
+            <div class="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-blue-700">
+              <i data-lucide="user" class="w-10 h-10"></i>
+            </div>
+            <h3 class="font-bold text-lg text-blue-900">Ibu Citra, S.Sn</h3>
+            <p class="text-amber-600 font-medium text-sm mb-3">Pembina Tari Tradisional</p>
+            <div class="flex justify-center gap-3 text-gray-500">
+              <i data-lucide="phone" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+              <i data-lucide="calendar" class="w-4 h-4 cursor-pointer hover:text-blue-600"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= VIEW: REGISTER ================= -->
+  <div id="view-register" class="hidden flex-grow">
+    <div class="max-w-3xl mx-auto px-4 py-12">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+        <!-- Header Form -->
+        <div class="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-center border-b-4 border-amber-400">
+          <h2 class="text-2xl font-bold text-white mb-1 drop-shadow-sm">Form Pendaftaran Ekstrakurikuler</h2>
+          <p class="text-blue-100 text-sm">Lengkapi data di bawah ini dengan benar</p>
+        </div>
+
+        <div class="p-8">
+          
+          <!-- Status Message Alert -->
+          <div id="status-alert" class="hidden p-4 rounded-lg mb-6 flex items-start gap-3 shadow-sm">
+            <i id="status-icon" data-lucide="info" class="w-5 h-5 mt-0.5"></i>
+            <p id="status-text" class="font-medium"></p>
+          </div>
+
+          <!-- Loading State -->
+          <div id="loading-state" class="flex flex-col items-center justify-center py-12">
+            <i data-lucide="loader-2" class="w-10 h-10 text-blue-600 animate-spin mb-4"></i>
+            <p class="text-slate-600 font-medium">Sedang mengambil data dari database...</p>
+            <p class="text-sm text-slate-400 mt-1">Mohon tunggu sebentar</p>
+          </div>
+
+          <!-- The Form -->
+          <form id="register-form" class="space-y-6 hidden">
+            
+            <!-- Grid 2 Kolom untuk Kelas & Siswa -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Pilih Kelas</label>
+                <select id="kelas-select" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+                  <option value="" disabled selected>-- Pilih Kelas --</option>
+                  <!-- Options diisi via JS -->
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Siswa</label>
+                <select id="siswa-select" required disabled class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white disabled:bg-gray-100 disabled:text-gray-400">
+                  <option value="" disabled selected>-- Pilih Siswa --</option>
+                  <!-- Options diisi via JS -->
+                </select>
+                <p id="kelas-warning" class="text-xs text-amber-600 mt-1">*Pilih kelas terlebih dahulu</p>
+              </div>
+            </div>
+
+            <!-- Data Akun & Kontak -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-gray-100 pt-6 mt-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor WA Orang Tua</label>
+                <input id="no-wa" type="tel" required placeholder="Contoh: 081234567890" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Buat Password Login</label>
+                <input id="password" type="password" required placeholder="Untuk login ke web nanti" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" />
+              </div>
+            </div>
+
+            <!-- Pilihan Ekstrakurikuler -->
+            <div class="border-t border-gray-100 pt-6 mt-6">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Pilih Ekstrakurikuler</label>
+              <select id="ekskul-select" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+                <option value="" disabled selected>-- Pilih Ekstrakurikuler --</option>
+                <!-- Options diisi via JS -->
+              </select>
+              <p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i> Jika ingin ikut 2 ekskul, silakan isi form ini lagi setelah submit.
+              </p>
+            </div>
+
+            <!-- Bagian Pembayaran -->
+            <div id="payment-section" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-5 mt-6 transition-all duration-500 ease-in-out">
+              <h3 class="font-bold text-blue-900 mb-3 border-b border-slate-200 pb-2">Informasi Biaya Pendaftaran</h3>
+              
+              <div id="payment-required-box" class="hidden">
+                <div class="flex justify-between items-center mb-4 bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+                  <span class="text-gray-600 font-medium">Nominal yang harus ditransfer:</span>
+                  <span id="payment-amount" class="font-bold text-xl text-amber-600">Rp 0</span>
+                </div>
+                
+                <div class="mb-4 text-sm text-gray-700">
+                  <p>Silakan transfer ke rekening berikut:</p>
+                  <p class="font-bold text-blue-800 text-lg mt-1">BSI - 7240780137</p>
+                  <p>a.n Amrin</p>
+                </div>
+
+                <div class="mt-4">
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Upload Bukti Transfer</label>
+                  <div class="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center hover:bg-blue-50 transition cursor-pointer relative">
+                    <input id="bukti-tf" type="file" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                    <div class="flex flex-col items-center">
+                      <i data-lucide="upload" class="text-blue-500 mb-2 w-7 h-7"></i>
+                      <span id="file-name-display" class="text-blue-700 font-medium">Klik atau drop file di sini</span>
+                      <span id="file-helper-text" class="text-gray-500 text-xs mt-1">Format: JPG, PNG (Max 2MB)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="payment-free-box" class="hidden flex items-center gap-3 text-green-700 bg-green-100/50 p-3 rounded-lg">
+                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                <p class="font-medium">Ekstrakurikuler ini <strong>GRATIS</strong> biaya pendaftaran.</p>
+              </div>
+            </div>
+
+            <!-- Tombol Submit -->
+            <div class="pt-4">
+              <button type="submit" class="w-full bg-blue-800 text-white py-3 px-4 rounded-lg font-bold text-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition shadow-lg">
+                Submit Pendaftaran
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-blue-900 text-blue-100 py-8 text-center mt-auto">
+    <p>© 2026 Sistem Informasi Ekstrakurikuler Al Wildan Islamic School 15 Bekasi. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT LOGIKA -->
+  <script>
+    // Inisialisasi Icons
+    lucide.createIcons();
+
+    // URL untuk Mengambil Data (Siswa & Ekskul) - Spreadsheet 1
+    const GAS_URL_GET = "https://script.google.com/macros/s/AKfycbyNBWIlBPWbpVx2zSA73Vkhn8fmHyiTS2Dpcy-tFwiyjiSBp2ykBbOm0wLoH_MPVUQsGg/exec";
+    
+    // URL untuk Mengirim Data (Pendaftaran) - Spreadsheet 2
+    const GAS_URL_POST = "https://script.google.com/macros/s/AKfycbyJb0NKDECWU8RVAmqCedvMUXmhgSsLXeLJG_pZQyi7OR8ihlJoGweQO6sLT5EbYySR/exec";
+
+    // Variables / State
+    let siswaData = [];
+    let ekskulData = [];
+    let isDataLoaded = false;
+    let selectedFile = null;
+    let isPaymentRequiredForSelected = false;
+
+    // DOM Elements
+    const viewHome = document.getElementById('view-home');
+    const viewRegister = document.getElementById('view-register');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Form Elements
+    const loadingState = document.getElementById('loading-state');
+    const registerForm = document.getElementById('register-form');
+    const kelasSelect = document.getElementById('kelas-select');
+    const siswaSelect = document.getElementById('siswa-select');
+    const kelasWarning = document.getElementById('kelas-warning');
+    const ekskulSelect = document.getElementById('ekskul-select');
+    
+    // Payment Elements
+    const paymentSection = document.getElementById('payment-section');
+    const paymentRequiredBox = document.getElementById('payment-required-box');
+    const paymentFreeBox = document.getElementById('payment-free-box');
+    const paymentAmountText = document.getElementById('payment-amount');
+    const buktiTfInput = document.getElementById('bukti-tf');
+    const fileNameDisplay = document.getElementById('file-name-display');
+    const fileHelperText = document.getElementById('file-helper-text');
+    
+    // Ekskul Elements
+    const ekskulGrid = document.getElementById('ekskul-grid');
+    const ekskulLoading = document.getElementById('ekskul-loading');
+
+    // Generate Dummy Images
+    const dokGrid = document.getElementById('dokumentasi-grid');
+    for(let i=0; i<8; i++) {
+      dokGrid.innerHTML += `
+        <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden group relative">
+          <div class="w-full h-full flex items-center justify-center bg-gray-300">
+            <i data-lucide="image" class="w-10 h-10 text-gray-400"></i>
+          </div>
+          <div class="absolute inset-0 bg-blue-900 bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+            <span class="text-white opacity-0 group-hover:opacity-100 font-semibold">Lihat Foto</span>
+          </div>
+        </div>
+      `;
+    }
+    lucide.createIcons();
+
+    // Toggle Mobile Menu
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Navigasi Antar Halaman
+    function navigateTo(view) {
+      if(view === 'home') {
+        viewHome.classList.remove('hidden');
+        viewRegister.classList.add('hidden');
+      } else if (view === 'register') {
+        viewHome.classList.add('hidden');
+        viewRegister.classList.remove('hidden');
+      }
+      mobileMenu.classList.add('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    // Tampilkan Pesan Status
+    function showStatus(type, message) {
+      const alertBox = document.getElementById('status-alert');
+      const icon = document.getElementById('status-icon');
+      const text = document.getElementById('status-text');
+      
+      alertBox.className = 'p-4 rounded-lg mb-6 flex items-start gap-3 shadow-sm';
+      text.innerText = message;
+      
+      if(type === 'error') {
+        alertBox.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+        icon.setAttribute('data-lucide', 'alert-circle');
+      } else if (type === 'info') {
+        alertBox.classList.add('bg-blue-50', 'text-blue-800', 'border', 'border-blue-200');
+        icon.setAttribute('data-lucide', 'loader-2');
+        icon.classList.add('animate-spin');
+      } else {
+        alertBox.classList.add('bg-green-50', 'text-green-800', 'border', 'border-green-200');
+        icon.setAttribute('data-lucide', 'check-circle-2');
+      }
+      
+      alertBox.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    // Sembunyikan Pesan Status
+    function hideStatus() {
+      document.getElementById('status-alert').classList.add('hidden');
+      document.getElementById('status-icon').classList.remove('animate-spin');
+    }
+
+    // Panggil fetchData() di awal saat halaman pertama kali di-load
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchData();
+    });
+
+    // Fetch Data API
+    async function fetchData() {
+      try {
+        const resSiswa = await fetch(GAS_URL_GET + "?action=getSiswa");
+        const dataSiswa = await resSiswa.json();
+        
+        const resEkskul = await fetch(GAS_URL_GET + "?action=getEkskul");
+        const dataEkskul = await resEkskul.json();
+
+        if(dataSiswa.length > 0) siswaData = dataSiswa;
+        if(dataEkskul.length > 0) ekskulData = dataEkskul;
+      } catch (error) {
+        console.error("Gagal mengambil data, menggunakan Data Dummy Ekskul Lengkap", error);
+        
+        // Fallback data siswa
+        siswaData = [
+          { kelas: '7 AE 1', nama: 'Ahmad Budi (Data Dummy)' },
+          { kelas: '7 AE 1', nama: 'Siti Aminah (Data Dummy)' },
+          { kelas: '7 AE 2', nama: 'Bagus Sajiwo (Data Dummy)' }
+        ];
+        
+        // Fallback Data Ekskul Lengkap (Sesuai Permintaan)
+        ekskulData = [
+          { nama_ekskul: 'Tahfiz Al Qur\'an', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Arabic Club', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Basket', biaya_daftar: 50000, biaya_bulanan: 25000 },
+          { nama_ekskul: 'Futsal', biaya_daftar: 50000, biaya_bulanan: 25000 },
+          { nama_ekskul: 'Copywriter', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'English Club', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Handcrafting', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Karate', biaya_daftar: 50000, biaya_bulanan: 25000 },
+          { nama_ekskul: 'Math Club', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Nagham', biaya_daftar: 0, biaya_bulanan: 0 },
+          { nama_ekskul: 'Panahan', biaya_daftar: 75000, biaya_bulanan: 50000 },
+          { nama_ekskul: 'Robotic', biaya_daftar: 100000, biaya_bulanan: 75000 },
+          { nama_ekskul: 'Science Club', biaya_daftar: 0, biaya_bulanan: 0 }
+        ];
+      } finally {
+        populateKelas();
+        populateEkskul();
+        renderEkskulCards();
+        isDataLoaded = true;
+        
+        // Hide loading states
+        loadingState.classList.add('hidden');
+        ekskulLoading.classList.add('hidden');
+        
+        // Show components
+        registerForm.classList.remove('hidden');
+        ekskulGrid.classList.remove('hidden');
+      }
+    }
+
+    // SISTEM PENDETEKSI IKON (MENGGUNAKAN EMOJI BERWARNA)
+    function getEkskulIcon(nama) {
+      const n = nama.toLowerCase();
+      
+      // Ikon Spesifik Sesuai Permintaan
+      if (n.includes("qur'an") || n.includes('tahfiz') || n.includes('quran')) return '📖';
+      if (n.includes('arabic') || n.includes('arab')) return '🇸🇦';
+      if (n.includes('basket')) return '🏀';
+      if (n.includes('futsal') || n.includes('sepak bola') || n.includes('gawang')) return '🥅';
+      if (n.includes('copywriter') || n.includes('nulis') || n.includes('laptop')) return '💻';
+      if (n.includes('english') || n.includes('inggris')) return '🇬🇧';
+      if (n.includes('handcrafting') || n.includes('karya') || n.includes('kerajinan') || n.includes('pita')) return '🎀';
+      if (n.includes('karate') || n.includes('silat') || n.includes('bela diri') || n.includes('perisai')) return '🛡️';
+      if (n.includes('math') || n.includes('matematika') || n.includes('hitung')) return '🧮';
+      if (n.includes('nagham') || n.includes('masjid')) return '🕌';
+      if (n.includes('panahan') || n.includes('memanah') || n.includes('busur')) return '🏹';
+      if (n.includes('robotic') || n.includes('robot')) return '🤖';
+      if (n.includes('science') || n.includes('sains') || n.includes('ipa') || n.includes('mikroskop')) return '🔬';
+
+      // Ekstra Ikon untuk yang mungkin ada di kemudian hari
+      if (n.includes('pramuka')) return '🏕️';
+      if (n.includes('paskibra')) return '🇮🇩';
+      if (n.includes('pmr') || n.includes('kesehatan')) return '🩺';
+      if (n.includes('tari') || n.includes('seni')) return '🎭';
+      if (n.includes('voli')) return '🏐';
+      
+      return '✨'; // Default icon jika belum terdeteksi
+    }
+
+    // Render Kartu Ekstrakurikuler di Halaman Home dengan Ikon Emoji 3D
+    function renderEkskulCards() {
+      ekskulGrid.innerHTML = '';
+      if(ekskulData.length === 0) {
+        ekskulGrid.innerHTML = '<p class="text-slate-500 col-span-full text-center">Belum ada data ekstrakurikuler.</p>';
+        return;
+      }
+      
+      ekskulData.forEach(eks => {
+        const emojiIcon = getEkskulIcon(eks.nama_ekskul);
+        ekskulGrid.innerHTML += `
+          <div class="group bg-white rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-32 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden">
+              <span class="text-6xl drop-shadow-md transform transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-3">
+                ${emojiIcon}
+              </span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-xl text-blue-900 mb-2">${eks.nama_ekskul}</h3>
+              <p class="text-gray-600 text-sm mb-4">Kegiatan pengembangan diri bidang ${eks.nama_ekskul.toLowerCase()} untuk siswa.</p>
+              <button onclick="navigateTo('register')" class="text-blue-700 font-semibold hover:text-amber-500 text-sm flex items-center gap-1">
+                Daftar ekskul ini <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      lucide.createIcons(); // Re-render Lucide icons (chevron-right) yang baru ditambahkan
+    }
+
+    // Isi Dropdown Kelas
+    function populateKelas() {
+      const kelasUnik = [...new Set(siswaData.map(item => item.kelas))];
+      kelasSelect.innerHTML = '<option value="" disabled selected>-- Pilih Kelas --</option>';
+      kelasUnik.forEach(k => {
+        kelasSelect.innerHTML += `<option value="${k}">${k}</option>`;
+      });
+    }
+
+    // Isi Dropdown Ekstrakurikuler
+    function populateEkskul() {
+      ekskulSelect.innerHTML = '<option value="" disabled selected>-- Pilih Ekstrakurikuler --</option>';
+      ekskulData.forEach(e => {
+        ekskulSelect.innerHTML += `<option value="${e.nama_ekskul}">${e.nama_ekskul}</option>`;
+      });
+    }
+
+    // Event Listener: Kelas Berubah
+    kelasSelect.addEventListener('change', (e) => {
+      const kelas = e.target.value;
+      siswaSelect.innerHTML = '<option value="" disabled selected>-- Pilih Siswa --</option>';
+      
+      const filteredSiswa = siswaData.filter(item => item.kelas === kelas);
+      filteredSiswa.forEach(s => {
+        siswaSelect.innerHTML += `<option value="${s.nama}">${s.nama}</option>`;
+      });
+      
+      siswaSelect.disabled = false;
+      kelasWarning.classList.add('hidden');
+    });
+
+    // Event Listener: Ekskul Berubah
+    ekskulSelect.addEventListener('change', (e) => {
+      const eksName = e.target.value;
+      const details = ekskulData.find(eks => eks.nama_ekskul === eksName);
+      
+      if(details) {
+        paymentSection.classList.remove('hidden');
+        const biaya = Number(details.biaya_daftar);
+        
+        if(biaya > 0) {
+          isPaymentRequiredForSelected = true;
+          paymentRequiredBox.classList.remove('hidden');
+          paymentFreeBox.classList.add('hidden');
+          paymentAmountText.innerText = `Rp ${biaya.toLocaleString('id-ID')}`;
+        } else {
+          isPaymentRequiredForSelected = false;
+          paymentRequiredBox.classList.add('hidden');
+          paymentFreeBox.classList.remove('hidden');
+        }
+      }
+    });
+
+    // Event Listener: File Upload
+    buktiTfInput.addEventListener('change', (e) => {
+      if(e.target.files.length > 0) {
+        selectedFile = e.target.files[0];
+        fileNameDisplay.innerText = selectedFile.name;
+        fileHelperText.classList.add('hidden');
+      } else {
+        selectedFile = null;
+        fileNameDisplay.innerText = "Klik atau drop file di sini";
+        fileHelperText.classList.remove('hidden');
+      }
+    });
+
+    // Konversi File ke Base64
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        if (!file) resolve(null);
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    // Submit Pendaftaran
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Validasi URL sudah diubah atau belum
+      if (GAS_URL_POST === "MASUKKAN_URL_APPSCRIPT_PENDAFTARAN_DI_SINI") {
+         showStatus('error', 'DEVELOPER ERROR: Tolong ubah URL GAS_URL_POST di dalam kodenya dengan URL AppScript yang baru!');
+         window.scrollTo(0, 0);
+         return;
+      }
+      
+      if(isPaymentRequiredForSelected && !selectedFile) {
+        showStatus('error', 'Mohon upload bukti transfer pendaftaran terlebih dahulu.');
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      showStatus('info', 'Sedang mengirim data pendaftaran ke server...');
+      window.scrollTo(0, 0);
+
+      try {
+        const fileBase64 = selectedFile ? await getBase64(selectedFile) : "";
+        const fileName = selectedFile ? selectedFile.name : "";
+        const mimeType = selectedFile ? selectedFile.type : "";
+
+        const payload = {
+          action: "register",
+          kelas: kelasSelect.value,
+          nama_siswa: siswaSelect.value,
+          no_wa: document.getElementById('no-wa').value,
+          password: document.getElementById('password').value,
+          ekskul: ekskulSelect.value,
+          fileBase64: fileBase64,
+          fileName: fileName,
+          mimeType: mimeType
+        };
+
+        await fetch(GAS_URL_POST, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain",
+          },
+          body: JSON.stringify(payload)
+        });
+
+        showStatus('success', 'Jazaakumullahu khairan telah mendaftar. Anda akan dialihkan ke halaman utama...');
+        
+        // Reset and Redirect
+        setTimeout(() => {
+          registerForm.reset();
+          siswaSelect.disabled = true;
+          kelasWarning.classList.remove('hidden');
+          paymentSection.classList.add('hidden');
+          selectedFile = null;
+          fileNameDisplay.innerText = "Klik atau drop file di sini";
+          fileHelperText.classList.remove('hidden');
+          hideStatus();
+          navigateTo('home');
+        }, 3000);
+
+      } catch (error) {
+        showStatus('error', 'Gagal mengirim data. Pastikan jaringan stabil. Error: ' + error.message);
+      }
+    });
+
+  </script>
+</body>
+</html>
